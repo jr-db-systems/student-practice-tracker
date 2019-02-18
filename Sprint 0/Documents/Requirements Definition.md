@@ -1,5 +1,6 @@
 # Requirements Definition
-**Functionalities**
+
+## Functionalities:
 
 - **Entity administration.** The program shall let its administrator add, modify or remove any entity into the database.
 - **Add new query.** The program shall let its administrator create a new query as long as it complies with data types and entity needs.
@@ -13,7 +14,7 @@
 - **Hours update.** Because on the main tasks of the system is to keep track of student hours worked inside their course workshop, the program shall let its administrator easily update a students amount of hours worked.
 - **A student graduates/drops out.** The program shall let its administrator remove those students who graduate or drop out of a course.
 
-**Non-Functionalities**
+## Non-Functionalities:
 
 - **Reliability.**
 - **Response time.** The program shall take no more than 5 seconds to respond single query searches and insertions, and no more than 10 seconds to respond to multi-query searches.
