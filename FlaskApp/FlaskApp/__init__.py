@@ -9,7 +9,7 @@ app = Flask(__name__)
 #db = yaml.load(open('db.yaml'))
 app.config['MYSQL_HOST'] = 'localhost' #db['mysql_host']
 app.config['MYSQL_USER'] = 'root' #db['mysql_user']
-app.config['MYSQL_PASSWORD'] = 'jrsystems' #db['mysql_password']
+app.config['MYSQL_PASSWORD'] = '' #db['mysql_password']
 app.config['MYSQL_DB'] = 'flaskapp' #db['mysql_db']
 
 mysql = MySQL(app)
