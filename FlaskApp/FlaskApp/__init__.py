@@ -1,7 +1,7 @@
 from flask import Flask
 from flask import render_template, request
 from flask_mysqldb import MySQL
-import yaml
+#import yaml
 
 app = Flask(__name__)
 
@@ -9,12 +9,12 @@ app = Flask(__name__)
 #db = yaml.load(open('db.yaml'))
 app.config['MYSQL_HOST'] = 'localhost' #db['mysql_host']
 app.config['MYSQL_USER'] = 'root' #db['mysql_user']
-app.config['MYSQL_PASSWORD'] = '' #db['mysql_password']
+app.config['MYSQL_PASSWORD'] = 'jrsystems' #db['mysql_password']
 app.config['MYSQL_DB'] = 'flaskapp' #db['mysql_db']
 
 mysql = MySQL(app)
 
-@app.route('/Form', methods=['GET', 'POST'])
+@app.route('/form', methods=['GET', 'POST'])
 def index():
     if request.method == 'POST':
         # Fetch form data
@@ -27,6 +27,16 @@ def index():
         cur.close()
         return 'success'
     return render_template('form1.html')
+
+@app.route('/users')
+def users():
+	cur = mysql.connection.cursor()
+	resultValue = cur.execute("SELECT * FROM users")
+	if (resultValue > 0):
+		userDetails = cur.fetchall()
+		return render_template('users.html', userDetails=userDetails)
+	else:
+		print("DATABASE IS EMPTY: NO USERS FOUND")
 
 @app.route("/Hello")
 def hello():
