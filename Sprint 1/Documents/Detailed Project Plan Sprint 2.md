@@ -2,7 +2,7 @@
 
 - Client-side development must loosely resemble initial mock ups created in previous sprint (client side will be created utilizing view.js insteaf of angular 2)
 
-- A working database instance modeled after our concepts ER mapping hosted on the cloud
+- A working database instance modeled after our concept's ER mapping hosted on the cloud
 
 - Aplication must be able to add and remove entries from the database
 
