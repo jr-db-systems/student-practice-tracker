@@ -9,3 +9,5 @@ Client side will be created utilizing view.js insteaf of angular 2
 - Aplication must be able to add and remove entries from the database
 
 When the above requirements are completed the overall project will have reached 50% completion
+
+- Detailed project plan for sprint 3 must be created
