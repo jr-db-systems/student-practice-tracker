@@ -4,7 +4,7 @@
 
 ### SPT will help school administrations keep track of their student's progress towards their certificate in their chosen vocation
 
-#### Client-side Framework: View.js
+#### Client-side Framework: Vue.js
 #### Application Server Framework: Flask (Python)
 #### DBMS technology: MySQL
 
