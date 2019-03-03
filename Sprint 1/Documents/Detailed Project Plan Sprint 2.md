@@ -1,6 +1,6 @@
 # Detailed Project Plan Sprint 2
 
-- Client-side development must loosely resemble initial mock ups created in previous sprint (client side will be created utilizing view.js insteaf of angular 2)
+- Client-side development must loosely resemble initial mock ups created in previous sprint (client side will be created utilizing Vue.js instead of angular 2)
 
 - A working database instance modeled after our concept's ER mapping hosted on the cloud
 
