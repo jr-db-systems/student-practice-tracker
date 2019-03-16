@@ -1,11 +1,9 @@
-# Detailed Project Plan Sprint 2
+# Detailed Project Plan Sprint 3
 
-- Client-side development must loosely resemble initial mock ups created in previous sprint (client side will be created utilizing Vue.js instead of angular 2)
+- Client-side development must begin to take shaped such that is starts to be intuitive to know what the page does.
 
-- A working database instance modeled after our concept's ER mapping hosted on the cloud
+- Aplication must be able to update entries from the database
 
-- Aplication must be able to add and remove entries from the database
+- Detailed project plan for sprint 4 must be created
 
-When the above requirements are completed the overall project will have reached 50% completion
-
-- Detailed project plan for sprint 3 must be created
+- (Expected but not behind schedule if not achieved) One shall be able to change pages within the app, say without the need of manualy changing the route in the address.
