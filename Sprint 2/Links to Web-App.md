@@ -1,14 +1,11 @@
-http://157.230.61.255/
+http://167.99.225.139/
 -Welcome Page
 
-http://157.230.61.255/Hello
--Hello test from Flask
+http://167.99.225.139/form
+-Add student to the Data Base
 
-http://157.230.61.255/Test
--Hello test from HTML file called from Flask
+http://167.99.225.139/remover
+-Remove student from de Data Base
 
-http://157.230.61.255/form
--HTML form that adds data to Data Base
-
-http://157.230.61.255/users
--Use of Jinja template in HTML file called from Flask to retrieve queries from Data Base
+http://167.99.225.139/estudiantes
+-Show all students in the Data Base
