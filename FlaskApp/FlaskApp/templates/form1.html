@@ -1,7 +1,29 @@
-<form method="POST" action="">  
-    Name <input type="text" name="name" />
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="="utf-8/>
+        <title>Agregar Estudiantes</title>
+        <link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    </head>
+
+    <div class="container">
+        <h3 align="center">Agrega un Estudiante</h3>
+    <form method="POST" action="">  
+    ID <input type="text" class="form-control" name="id" />
     <br>
-    Email <input type="email" name="email" />
+    Nombre <input type="text" class="form-control" name="nombre" />
     <br>
-    <input type="submit">
-</form>
+    Apellido <input type="text" class="form-control" name="apellido" />
+    <br>
+    Horas Acumuladas <input type="text" class="form-control" name="horasAcumuladas" />
+    <br>
+    Año <input type="text" class="form-control" name="anio" />
+    <br>
+    Código de Curso <input type="text" class="form-control" name="curso" />
+    <br>
+    <button type="submit" class = "btn btn-danger" role = "button">Agregar</button>
+	</form>
+	</div>
+
+</html>

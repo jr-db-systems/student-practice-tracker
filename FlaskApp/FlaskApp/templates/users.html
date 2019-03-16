@@ -1,8 +1,33 @@
-<table border = 1> 
-	{% for user in userDetails %}
-	<tr>
-		<td> {{user[0]}} </td>
-		<td> {{user[1]}} </td>
-	</tr>
-	{% endfor %}
-</table>
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="="utf-8/>
+        <title>Testing Styling</title>
+        <link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    </head>
+	<body>
+    	<div class="container">
+    		<div class="page-header"> 
+    			<h1 align="center"> Estudiantes Matriculados </h1>
+    		</div>
+    	</div>
+    </body>
+	<table class="table table-bordered table-striped table-hover">
+		<thead>
+			<tr>
+				<td colspan="4"> ID Estudiante </td>
+				<td> Nombre Estudiante </td>
+			</tr>
+		</thead>
+		<tbody>
+		{% for user in StudentDetails %}
+		<thead>
+			<tr>
+				<td colspan="4"> {{user[0]}} </td>
+				<td> {{user[1]}} </td>
+			</tr>
+		</thead>
+		<tbody>
+		{% endfor %}
+	</table>
+</html>

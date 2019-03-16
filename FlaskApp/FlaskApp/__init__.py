@@ -7,10 +7,10 @@ app = Flask(__name__)
 
 # Configure db
 #db = yaml.load(open('db.yaml'))
-app.config['MYSQL_HOST'] = '157.230.61.255' #db['mysql_host']
+app.config['MYSQL_HOST'] = '167.99.225.139' #db['mysql_host']
 app.config['MYSQL_USER'] = 'chepo' #db['mysql_user']
 app.config['MYSQL_PASSWORD'] = 'jrsys' #db['mysql_password']
-app.config['MYSQL_DB'] = 'flaskapp' #db['mysql_db']
+app.config['MYSQL_DB'] = 'studentpracticetracker' #db['mysql_db']
 
 mysql = MySQL(app)
 
@@ -18,25 +18,29 @@ mysql = MySQL(app)
 def index():
     if request.method == 'POST':
         # Fetch form data
-        userDetails = request.form
-        name = userDetails['name']
-        email = userDetails['email']
+        StudentDetails = request.form
+        id_est  = StudentDetails['id']
+        nombre  = StudentDetails['nombre']
+        apellido  = StudentDetails['apellido']
+        horas  = StudentDetails['horasAcumuladas']
+        anio  = StudentDetails['anio']
+        curso  = StudentDetails['curso']
         cur = mysql.connection.cursor()
-        cur.execute("INSERT INTO users(name, email) VALUES(%s, %s)",(name, email))
+        cur.execute("INSERT INTO estudiante(id, nombre, apellido, horasAcumuladas, año, curso_codigoCurso) VALUES(%s, %s, %s, %s, %s, %s)",(id_est, nombre, apellido, horas, anio, curso))
         mysql.connection.commit()
         cur.close()
-        return 'success'
+        return 'ESTUDIANTE AGREGADO'
     return render_template('form1.html')
 
-@app.route('/users')
+@app.route('/estudiantes')
 def users():
 	cur = mysql.connection.cursor()
-	resultValue = cur.execute("SELECT * FROM users")
+	resultValue = cur.execute("SELECT * FROM estudiante")
 	if (resultValue > 0):
-		userDetails = cur.fetchall()
-		return render_template('users.html', userDetails=userDetails)
+		StudentDetails = cur.fetchall()
+		return render_template('users.html', StudentDetails=StudentDetails)
 	else:
-		print("DATABASE IS EMPTY: NO USERS FOUND")
+		return "DATABASE IS EMPTY: NO USERS FOUND"
 
 @app.route("/Hello")
 def hello():
@@ -44,12 +48,15 @@ def hello():
 
 @app.route("/")
 def main():
-    return "DROPLET FOR JR SYSTEMS CLASS PROJECT DEVELOPMENT"
+    return render_template('index.html')
 
 @app.route("/Test")
 def the_html():
-    return render_template('index.html')
+    return render_template('test1.html')
 
+@app.route("/Test2")
+def the_other_html():
+    return render_template('test2.html')
 
 if __name__ == '__main__':
     app.run(debug=True)
