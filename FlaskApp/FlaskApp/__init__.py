@@ -29,7 +29,7 @@ def index():
         cur.execute("INSERT INTO estudiante(id, nombre, apellido, horasAcumuladas, año, curso_codigoCurso) VALUES(%s, %s, %s, %s, %s, %s)",(id_est, nombre, apellido, horas, anio, curso))
         mysql.connection.commit()
         cur.close()
-        return 'ESTUDIANTE AGREGADO'
+        return render_template('est_agregado.html')
     return render_template('form1.html')
 
 @app.route('/estudiantes')
@@ -57,6 +57,18 @@ def the_html():
 @app.route("/Test2")
 def the_other_html():
     return render_template('test2.html')
+
+@app.route("/remover", methods=['GET', 'POST'])
+def remover_estudiante():
+    if request.method == 'POST':
+        StudentDetails = request.form
+        id_est  = StudentDetails['id']
+        cur = mysql.connection.cursor()
+        cur.execute("DELETE FROM estudiante WHERE id=%s", (id_est,))
+        mysql.connection.commit()
+        cur.close()
+        return render_template('est_removido.html')
+    return render_template("remover.html")
 
 if __name__ == '__main__':
     app.run(debug=True)
