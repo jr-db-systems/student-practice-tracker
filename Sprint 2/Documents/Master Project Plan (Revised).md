@@ -17,3 +17,5 @@
 
 ## Sprint 5:
   As expected, at this last sprint, the project should be completed to a 100%, tested, debugged and up and running in a cloud. This last part is left open as to if any of the sprints gets delayed, be able to use this space to gain back lost time.
+  
+  
