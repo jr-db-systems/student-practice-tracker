@@ -42,6 +42,35 @@ def users():
 	else:
 		return "DATABASE IS EMPTY: NO USERS FOUND"
 
+################################ NEW ######################################################
+@app.route('/formmaestro', methods=['GET', 'POST'])
+def index1():
+    if request.method == 'POST':
+        # Fetch form data
+        TeacherDetails = request.form
+        id_maest  = TeacherDetails['id']
+        nombre  = TeacherDetails['nombre']
+        apellido  = TeacherDetails['apellido']
+        especializacion  = TeacherDetails['especializacion']
+        curso  = TeacherDetails['curso']
+        cur = mysql.connection.cursor()
+        cur.execute("INSERT INTO maestro(id, nombre, apellido, especialización, curso_codigoCurso) VALUES(%s, %s, %s, %s, %s)",(id_maest, nombre, apellido, especializacion, curso))
+        mysql.connection.commit()
+        cur.close()
+        return render_template('est_agregado.html')
+    return render_template('form2.html')
+
+@app.route('/maestros')
+def maestros():
+	cur = mysql.connection.cursor()
+	resultValue = cur.execute("SELECT * FROM maestro")
+	if (resultValue > 0):
+		TeacherDetails = cur.fetchall()
+		return render_template('maestros.html', TeacherDetails=TeacherDetails)
+	else:
+		return "DATABASE IS EMPTY: NO USERS FOUND"
+################################ NEW ######################################################
+
 @app.route("/Hello")
 def hello():
     return "Hello, I love Digital Ocean!"
