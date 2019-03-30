@@ -14,8 +14,89 @@ app.config['MYSQL_DB'] = 'studentpracticetracker' #db['mysql_db']
 
 mysql = MySQL(app)
 
-@app.route('/form', methods=['GET', 'POST'])
-def index():
+@app.route("/")
+def main():
+    return render_template('HomePage.html')
+
+############# Esudiantes #############
+
+@app.route("/ManejarEstudiantes")
+def ManejarEstudiantes():
+    return render_template('GUI_Manejar_Estudiantes.html')
+
+'''
+# intento de hacer un search
+@app.route('/buscarestudiante', methods=['GET', 'POST'])
+def buscarEstudiante():
+    if request.method == 'POST':
+        StudentDetails = request.form
+        id_est  = StudentDetails['id']
+
+        cur = mysql.connection.cursor()
+        resultValue = cur.execute("SELECT * FROM estudiante WHERE id=%s", (id_est))
+        if (resultValue > 0)
+            StudentDetails = cur.fetchall()
+            return render_template('Mostrar_Estudiantes.html', StudentDetails=StudentDetails)
+        #mysql.connection.commit()
+        #cur.close()
+    return render_template("BuscarEstudiante.html")
+'''
+@app.route('/MostrarEstudiantes')
+def users():
+	cur = mysql.connection.cursor()
+	resultValue = cur.execute("SELECT * FROM estudiante")
+	if (resultValue > 0):
+		StudentDetails = cur.fetchall()
+		return render_template('Mostrar_Estudiantes.html', StudentDetails=StudentDetails)
+	else:
+		return "DATABASE IS EMPTY: NO USERS FOUND"
+
+@app.route('/actualizarestudiante')
+def actualizarHome():    
+    return render_template('ActualizarEstudianteMenu.html')
+
+@app.route('/actualizarestudiantehoras', methods=['GET', 'POST'])
+def actualizar_estudiante():
+    if request.method == 'POST':
+        StudentDetails = request.form
+        id_est  = StudentDetails['id']
+        horas = StudentDetails['horas']
+        cur = mysql.connection.cursor()
+        cur.execute("UPDATE estudiante SET horasAcumuladas = %s WHERE id=%s", (horas, id_est))
+        mysql.connection.commit()
+        cur.close()
+        return render_template('Estudiante_Actualizado.html')
+    return render_template("ActualizarEstudianteHoras.html")
+
+@app.route('/actualizarestudiantecurso', methods=['GET', 'POST'])
+def actualizar_estudiante_curso():
+    if request.method == 'POST':
+        StudentDetails = request.form
+        id_est  = StudentDetails['id']
+        curso = StudentDetails['curso_codigoCurso']
+        cur = mysql.connection.cursor()
+        cur.execute("UPDATE estudiante SET curso_codigoCurso = %s WHERE id=%s", (curso, id_est))
+        mysql.connection.commit()
+        cur.close()
+        return render_template('Estudiante_Actualizado.html')
+    return render_template("ActualizarEstudianteCurso.html")
+
+@app.route('/actualizarestudianteanio', methods=['GET', 'POST'])
+def actualizar_estudiante_anio():
+    if request.method == 'POST':
+        StudentDetails = request.form
+        id_est  = StudentDetails['id']
+        anio = StudentDetails['anio']
+        cur = mysql.connection.cursor()
+        cur.execute("UPDATE estudiante SET año = %s WHERE id=%s", (anio, id_est))
+        mysql.connection.commit()
+        cur.close()
+        return render_template('Estudiante_Actualizado.html')
+    return render_template("ActualizarEstudianteAnio.html")
+
+
+@app.route('/AgregarEstudiante', methods=['GET', 'POST'])
+def AgregarEstudiante():
     if request.method == 'POST':
         # Fetch form data
         StudentDetails = request.form
@@ -29,21 +110,56 @@ def index():
         cur.execute("INSERT INTO estudiante(id, nombre, apellido, horasAcumuladas, año, curso_codigoCurso) VALUES(%s, %s, %s, %s, %s, %s)",(id_est, nombre, apellido, horas, anio, curso))
         mysql.connection.commit()
         cur.close()
-        return render_template('est_agregado.html')
-    return render_template('form1.html')
+        return render_template('Estudiante_Agregado.html')
+    return render_template('AgregarEstudiante.html')
 
-@app.route('/estudiantes')
-def users():
+@app.route("/RemoverEstudiante", methods=['GET', 'POST'])
+def remover_estudiante():
+    if request.method == 'POST':
+        StudentDetails = request.form
+        id_est  = StudentDetails['id']
+        cur = mysql.connection.cursor()
+        cur.execute("DELETE FROM estudiante WHERE id=%s", (id_est,))
+        mysql.connection.commit()
+        cur.close()
+        return render_template('Estudiante_Removido.html')
+    return render_template("RemoverEstudiante.html")
+
+
+############# Maestros #############
+
+@app.route("/ManejarMaestros")
+def ManejarMaestros():
+    return render_template('GUI_Manejar_Maestros.html')
+
+@app.route('/actualizarmaestro')
+def actualizar_maestro_home():    
+    return render_template('ActualizarMaestroMenu.html')
+
+@app.route('/actualizarmaestrocurso', methods=['GET', 'POST'])
+def actualizar_maestro_curso():
+    if request.method == 'POST':
+        TeacherDetails = request.form
+        id_maest  = TeacherDetails['id']
+        curso = TeacherDetails['curso_codigoCurso']
+        cur = mysql.connection.cursor()
+        cur.execute("UPDATE maestro SET curso_codigoCurso = %s WHERE id=%s", (curso, id_maest))
+        mysql.connection.commit()
+        cur.close()
+        return render_template('Maestro_Actualizado.html')
+    return render_template("ActualizarMaestroCurso.html")
+
+@app.route('/MostrarMaestros')
+def maestros():
 	cur = mysql.connection.cursor()
-	resultValue = cur.execute("SELECT * FROM estudiante")
+	resultValue = cur.execute("SELECT * FROM maestro")
 	if (resultValue > 0):
-		StudentDetails = cur.fetchall()
-		return render_template('users.html', StudentDetails=StudentDetails)
+		TeacherDetails = cur.fetchall()
+		return render_template('Mostrar_Maestros.html', TeacherDetails=TeacherDetails)
 	else:
 		return "DATABASE IS EMPTY: NO USERS FOUND"
 
-################################ NEW ######################################################
-@app.route('/formmaestro', methods=['GET', 'POST'])
+@app.route('/AgregarMaestro', methods=['GET', 'POST'])
 def index1():
     if request.method == 'POST':
         # Fetch form data
@@ -57,27 +173,26 @@ def index1():
         cur.execute("INSERT INTO maestro(id, nombre, apellido, especialización, curso_codigoCurso) VALUES(%s, %s, %s, %s, %s)",(id_maest, nombre, apellido, especializacion, curso))
         mysql.connection.commit()
         cur.close()
-        return render_template('est_agregado.html')
-    return render_template('form2.html')
+        return render_template('Maestro_Agregado.html')
+    return render_template('AgregarMaestro.html')
 
-@app.route('/maestros')
-def maestros():
-	cur = mysql.connection.cursor()
-	resultValue = cur.execute("SELECT * FROM maestro")
-	if (resultValue > 0):
-		TeacherDetails = cur.fetchall()
-		return render_template('maestros.html', TeacherDetails=TeacherDetails)
-	else:
-		return "DATABASE IS EMPTY: NO USERS FOUND"
-################################ NEW ######################################################
+@app.route("/RemoverMaestro", methods=['GET', 'POST'])
+def remover_maestro():
+    if request.method == 'POST':
+        TeacherDetails = request.form
+        id_maest  = TeacherDetails['id']
+        cur = mysql.connection.cursor()
+        cur.execute("DELETE FROM maestro WHERE id=%s", (id_maest,))
+        mysql.connection.commit()
+        cur.close()
+        return render_template('Maestro_Removido.html')
+    return render_template("RemoverMaestro.html")
 
+
+'''
 @app.route("/Hello")
 def hello():
     return "Hello, I love Digital Ocean!"
-
-@app.route("/")
-def main():
-    return render_template('index.html')
 
 @app.route("/Test")
 def the_html():
@@ -87,17 +202,10 @@ def the_html():
 def the_other_html():
     return render_template('test2.html')
 
-@app.route("/remover", methods=['GET', 'POST'])
-def remover_estudiante():
-    if request.method == 'POST':
-        StudentDetails = request.form
-        id_est  = StudentDetails['id']
-        cur = mysql.connection.cursor()
-        cur.execute("DELETE FROM estudiante WHERE id=%s", (id_est,))
-        mysql.connection.commit()
-        cur.close()
-        return render_template('est_removido.html')
-    return render_template("remover.html")
+@app.route("/rerouting")
+def rerouting():
+    return render_template('redirecting_test.html')
+'''
 
 if __name__ == '__main__':
     app.run(debug=True)
