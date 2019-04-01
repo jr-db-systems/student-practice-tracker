@@ -1,4 +1,4 @@
-# Task unfinished in Grantt Chart!
+# Tasks unfinished and finished this sprint in Grantt Chart!
 
 ## Expected completion date:
 
