@@ -1,9 +1,9 @@
-# Detailed Project Plan Sprint 3
+# Detailed Project Plan Sprint 4
 
-- Client-side development must begin to take shaped such that is starts to be intuitive to know what the page does.
+## - Client-side development must continue to be shaped such that it is as intuitive as possible.
 
-- Aplication must be able to update entries from the database
+## - Data validaation is to be done. Namely, for when updating entries: no field would be able to be left in blank.
 
-- Detailed project plan for sprint 4 must be created
+## - Detailed project plan for sprint 4 must be created
 
-- (Expected but not behind schedule if not achieved) One shall be able to change pages within the app, say without the need of manualy changing the route in the address.
+## - (Expected but not required for projec overall) Improved query update such that any single field can be updated if ID is known.
