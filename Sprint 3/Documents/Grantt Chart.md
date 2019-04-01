@@ -11,3 +11,5 @@
 ### Database Relational Algebra: Sprint 4
 ### Stable Flask-MySQL connection: Sprint 3
 ### Stable Flask-Bootstrap Implementation: Sprint 4
+### Data Validation: Sprint 4
+### Debugging and Testing: Sprint 5
