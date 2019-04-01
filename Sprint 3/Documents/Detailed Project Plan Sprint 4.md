@@ -2,7 +2,7 @@
 
 ## - Client-side development must continue to be shaped such that it is as intuitive as possible.
 
-## - Data validaation is to be done. Namely, for when updating entries: no field would be able to be left in blank.
+## - Data validation is to be done. Namely, for when updating entries: no field would be able to be left in blank.
 
 ## - Detailed project plan for sprint 4 must be created
 
