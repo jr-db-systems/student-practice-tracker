@@ -2,6 +2,6 @@
 ## -Welcome Page
 
 
-There are no more pages because you can now navigate trough everything without the need of manually writing the routes
+There are no more pages because you can now navigate through everything without the need of manually writing the routes
 
 
