@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="="utf-8/>
+    <title>Cursos</title>
+    <link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+</head>
+
+
+<style type="text/css">
+
+    .active {
+        background-color: #eee !important;
+    }
+
+    td{
+        text-align: center;
+    }
+</style>
+
+<body>
+
+    <ul class="nav nav-tabs">
+
+        <li class="nav-item">
+            <a class="nav-link" href="/">Home</a>
+        </li>
+
+        <li class="nav-item">
+            <a class="nav-link" href="/ManejarEstudiantes">Estudiantes</a>
+        </li>
+
+        <li class="nav-item">
+            <a class="nav-link" href="/ManejarMaestros">Maestros</a>
+        </li>
+
+        <li class="nav-item">
+            <a class="nav-link active" href="/cursos">Cursos</a>
+        </li>
+
+        <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Dropdown</a>
+            <div class="dropdown-menu">
+                <a class="dropdown-item" href="#">Action</a>
+                <a class="dropdown-item" href="#">Another action</a>
+                <a class="dropdown-item" href="#">Something else here</a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="#">Separated link</a>
+            </div>
+        </li>
+    </ul>
+
+    <div class="jumbotron jumbotron-fluid">
+        <div class="container">
+            <h1 align="center">Student Practice Tracker</h1>
+            <div class="page-header">
+                <h3 align="center"> Cursos Disponibles </h3>
+            </div>
+        </div>
+    </div>
+
+    <table class="table table-bordered table-striped table-hover">
+        <thead>
+            <tr>
+                <td colspan="1"> Codigo </td>
+                <td> Nombre </td>
+            </tr>
+        </thead>
+
+        <tbody>
+            {% for user in CourseDetails %}
+            <thead>
+                <tr>
+                    <td colspan="1"> {{user[0]}} </td>
+                    <td> {{user[1]}} </td>
+                </tr>
+            </thead>
+            <tbody>
+                {% endfor %}
+    </table>
+
+    <div class="jumbotron jumbotron-fluid">
+        <div class="container">
+            <div class="page-header">
+                <h3 align="center"> Opciones </h3>
+                <div class="jumbotron" align="center">
+                    <p class="lead">
+                        <hr class="my-4">
+                        <a href="/actualizarcurso" class="btn btn-primary btn-lg">Actualizar<span class="glyphicon glyphicon-apple"></span></a>
+                        <hr class="my-4">
+                        <a href="/agregarcurso" class="btn btn-primary btn-lg">Agregar<span class="glyphicon glyphicon-pencil"></span></a>
+                        <hr class="my-4">
+                        <a href="/removercurso" class="btn btn-primary btn-lg">Remover<span class="glyphicon glyphicon-apple"></span></a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

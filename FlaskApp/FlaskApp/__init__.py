@@ -52,7 +52,7 @@ def users():
 		return "DATABASE IS EMPTY: NO USERS FOUND"
 
 @app.route('/actualizarestudiante')
-def actualizarHome():    
+def actualizarHome():
     return render_template('ActualizarEstudianteMenu.html')
 
 @app.route('/actualizarestudiantehoras', methods=['GET', 'POST'])
@@ -125,7 +125,6 @@ def remover_estudiante():
         return render_template('Estudiante_Removido.html')
     return render_template("RemoverEstudiante.html")
 
-
 ############# Maestros #############
 
 @app.route("/ManejarMaestros")
@@ -133,7 +132,7 @@ def ManejarMaestros():
     return render_template('GUI_Manejar_Maestros.html')
 
 @app.route('/actualizarmaestro')
-def actualizar_maestro_home():    
+def actualizar_maestro_home():
     return render_template('ActualizarMaestroMenu.html')
 
 @app.route('/actualizarmaestrocurso', methods=['GET', 'POST'])
@@ -188,15 +187,65 @@ def remover_maestro():
         return render_template('Maestro_Removido.html')
     return render_template("RemoverMaestro.html")
 
+############# Cursos #############
+
+@app.route('/cursos')
+def curso():
+	cur = mysql.connection.cursor()
+	resultValue = cur.execute("SELECT * FROM curso")
+	if (resultValue > 0):
+		CourseDetails = cur.fetchall()
+		return render_template('Cursos.html', CourseDetails=CourseDetails)
+	else:
+		return "DATABASE IS EMPTY: NO COURSES FOUND"
+
+@app.route('/actualizarcurso', methods=['GET', 'POST'])
+def actualizar_curso():
+    if request.method == 'POST':
+        CourseDetails = request.form
+        id_curso  = CourseDetails['codigoCurso']
+        curso = CourseDetails['nombre']
+        cur = mysql.connection.cursor()
+        cur.execute("UPDATE curso SET nombre = %s WHERE codigoCurso=%s", (curso, id_curso))
+        mysql.connection.commit()
+        cur.close()
+        return render_template('Curso_Actualizado.html')
+    return render_template("ActualizarCurso.html")
+
+@app.route('/agregarcurso', methods=['GET', 'POST'])
+def agregar_curso():
+    if request.method == 'POST':
+        # Fetch form data
+        CourseDetails = request.form
+        id_curso  = CourseDetails['codigoCurso']
+        curso  = CourseDetails['nombre']
+        cur = mysql.connection.cursor()
+        cur.execute("INSERT INTO curso(codigoCurso, nombre) VALUES(%s, %s)",(id_curso, curso))
+        mysql.connection.commit()
+        cur.close()
+        return render_template('Curso_Agregado.html')
+    return render_template('AgregarCurso.html')
+
+@app.route("/removercurso", methods=['GET', 'POST'])
+def remover_curso():
+    if request.method == 'POST':
+        CourseDetails = request.form
+        id_curso  = CourseDetails['codigoCurso']
+        cur = mysql.connection.cursor()
+        cur.execute("DELETE FROM curso WHERE codigoCurso=%s", (id_curso,))
+        mysql.connection.commit()
+        cur.close()
+        return render_template('Curso_Removido.html')
+    return render_template("RemoverCurso.html")
+
+@app.route("/Test")
+def the_html():
+    return render_template('test1.html')
 
 '''
 @app.route("/Hello")
 def hello():
     return "Hello, I love Digital Ocean!"
-
-@app.route("/Test")
-def the_html():
-    return render_template('test1.html')
 
 @app.route("/Test2")
 def the_other_html():

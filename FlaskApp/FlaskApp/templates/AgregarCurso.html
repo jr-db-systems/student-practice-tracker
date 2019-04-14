@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="="utf-8/>
-    <title>Estudiantes</title>
+    <title>Cursos</title>
     <link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
@@ -11,9 +11,9 @@
 
 <body>
 
-    {% include 'Header_Estudiantes.html' %}
+    {% include 'Header_Cursos.html' %}
 
-    
+
 
     <div class="jumbotron jumbotron-fluid">
         <div class="btn-group btn-group-sm" role="group" aria-label="..." style="padding: 10px">
@@ -21,20 +21,13 @@
         </div>
         <div class="container" align="center">
             <h1 align="center">Student Practice Tracker</h1> 
-            <h3 align="center">Agrega un Estudiante</h3>
+            <h3 align="center">Agrega un Curso</h3>
             <form method="POST" action="">  
-                ID <input type="text" class="form-control" name="id" />
+                Codigo <input type="text" class="form-control" name="codigoCurso" />
                 <br>
                 Nombre <input type="text" class="form-control" name="nombre" />
                 <br>
-                Apellido <input type="text" class="form-control" name="apellido" />
-                <br>
-                Horas Acumuladas <input type="text" class="form-control" name="horasAcumuladas" />
-                <br>
-                Año <input type="text" class="form-control" name="anio" />
-                <br>
-                Código de Curso <input type="text" class="form-control" name="curso" />
-                <br>
+
                 <button type="submit" class = "btn btn-success btn-lg" role = "button">Agregar</button>
             </form>
         </div>
