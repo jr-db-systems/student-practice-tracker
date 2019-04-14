@@ -3,25 +3,31 @@
 
 <head>
     <meta charset="="utf-8/>
-    <title>Actualizar Estudiantes</title>
+    <title>Maestros</title>
     <link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 </head>
 
-<div class="btn-group btn-group-sm" role="group" aria-label="...">
-    <input type="button" class="btn btn-primary btn-sm" value="BACK" onclick="history.back(-1)" />
-    <a href="http://167.99.225.139" class="btn btn-primary btn-sm">HOME</a>
-</div>
+<body>
 
-<div class="container" align="center">
-    <h1 align="center">Student Practice Tracker</h1>
-    <h3 align="center">Actualiza el curso que ofrece un maestro</h3>
-    <form method="POST" action="">
-        ID <input type="text" class="form-control" name="id" />
-        <br>  
-        Curso <input type="text" class="form-control" name="curso_codigoCurso" />
-        <br>
-        <button type="submit" class = "btn btn-danger" role = "button">Actualizar</button>
-    </form>
-</div>
+    {% include 'Header_Maestros.html' %}
 
+    <div class="btn-group btn-group-sm" role="group" aria-label="..." style="padding: 10px">
+        <input type="button" class="btn btn-primary btn-sm" value="BACK" onclick="history.back(-1)" />
+    </div>
+
+    <div class="container" align="center">
+        <h1 align="center">Student Practice Tracker</h1>
+        <h3 align="center">Actualiza el curso que ofrece un maestro</h3>
+        <form method="POST" action="">
+            ID <input type="text" class="form-control" name="id" />
+            <br>  
+            Curso <input type="text" class="form-control" name="curso_codigoCurso" />
+            <br>
+            <button type="submit" class = "btn btn-danger" role = "button">Actualizar</button>
+        </form>
+    </div>
+</body>
 </html>

@@ -1,34 +1,44 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="="utf-8/>
-        <title>Testing Styling</title>
-        <link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
-    </head>
-    <body>
-      <div class="jumbotron jumbotron-fluid">
-    	<div class="container">
-    		<div class="page-header">
-          <h1 align="center" class="display-4">Student Practice Tracker</h1> 
-    		  <h3 align="center"> Home Page </h3>
-    			<div class="jumbotron" align="center">
-  				  <p class="lead">This welcome page is under development</p>
-  					<hr class="my-4">
-  					<p class="lead">
-    					<a href="http://167.99.225.139/ManejarEstudiantes" class="btn btn-primary btn-lg">Estudiantes<span class="glyphicon glyphicon-pencil"></span></a>
-              <br />
-              <hr class="my-4">
-        			<a href="http://167.99.225.139/ManejarMaestros" class="btn btn-primary btn-lg">Maestros<span class="glyphicon glyphicon-apple"></span></a>
-  					</p>
-				</div>
-    		</div>
-    	</div>
-      </div>
-      <div class="jumbotron jumbotron-fluid">
-        <div class="container">
-          <h1 class="display-3">JR Systems</h1>
-          <p class="display-6">Developed by: Jose Fuentes and Roberto Rivera</p>
-        </div>
-    </div>
-    </body>
+<head>
+  <meta charset="="utf-8/>
+  <title>SPT Home</title>
+  <link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+
+  {% include 'Header_Home.html' %}
+
+  <div class="jumbotron jumbotron-fluid">
+   <div class="container">
+    <div class="page-header">
+      <h1 align="center" class="display-4">Student Practice Tracker</h1> 
+      <h3 align="center"> Home Page </h3>
+      <div class="jumbotron" align="center">
+        <p class="lead">This welcome page is under development</p>
+        <hr class="my-4">
+        <p class="lead">
+         <a href="/ManejarEstudiantes" class="btn btn-primary btn-lg">Estudiantes<span class="glyphicon glyphicon-pencil"></span></a>
+         <br />
+         <hr class="my-4">
+         <a href="/ManejarMaestros" class="btn btn-primary btn-lg">Maestros<span class="glyphicon glyphicon-apple"></span></a>
+         <br />
+         <hr class="my-4">
+         <a href="/cursos" class="btn btn-primary btn-lg">Cursos</a>
+       </p>
+     </div>
+   </div>
+ </div>
+</div>
+<div class="jumbotron jumbotron-fluid">
+  <div class="container">
+    <h1 class="display-3">JR Systems</h1>
+    <p class="display-6">Developed by: Jose Fuentes and Roberto Rivera</p>
+  </div>
+</div>
+</body>
 </html>

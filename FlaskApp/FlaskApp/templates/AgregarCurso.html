@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="="utf-8/>
+    <title>Cursos</title>
+    <link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+
+    {% include 'Header_Cursos.html' %}
+
+
+
+    <div class="jumbotron jumbotron-fluid">
+        <div class="btn-group btn-group-sm" role="group" aria-label="..." style="padding: 10px">
+            <input type="button" class="btn btn-primary btn-sm" value="BACK" onclick="history.back(-1)" />
+        </div>
+        <div class="container" align="center">
+            <h1 align="center">Student Practice Tracker</h1> 
+            <h3 align="center">Agrega un Curso</h3>
+            <form method="POST" action="">  
+                Codigo <input type="text" class="form-control" name="codigoCurso" />
+                <br>
+                Nombre <input type="text" class="form-control" name="nombre" />
+                <br>
+
+                <button type="submit" class = "btn btn-success btn-lg" role = "button">Agregar</button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

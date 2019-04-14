@@ -1,17 +1,25 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="="utf-8/>
-        <title>Testing Styling</title>
-        <link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
-    </head>
-    <body>
-      <div class="btn-group btn-group-sm" role="group" aria-label="...">
-        <input type="button" class="btn btn-primary btn-sm" value="BACK" onclick="history.back(-1)" />
-        <a href="http://167.99.225.139" class="btn btn-primary btn-sm">HOME</a>
-      </div>
+<head>
+  <meta charset="="utf-8/>
+  <title>Manejo de Datos</title>
+  <link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+</head>
+
+<style type="text/css">
+
+  .active {
+  background-color: #eee !important;
+  }
+</style>
+
+{% include 'Header_Estudiantes.html' %}
+<body>
     	<div class="container">
-    		<div class="page-header"> 
+    		<div class="page-header">
     			<h1> ¡¡Hello World!! </h1>
     			<div class="jumbotron">
  					<h1 class="display-4">JR Systems</h1>
@@ -36,4 +44,4 @@
   			</div>
 		</div>
     </body>
-</html>
+    </html>

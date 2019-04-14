@@ -1,16 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<meta charset="="utf-8/>
-	<title>Manejo de Datos</title>
-	<link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <meta charset="="utf-8/>
+    <title>Maestros</title>
+    <link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 </head>
+
 <body>
-	<div class="btn-group btn-group-sm" role="group" aria-label="...">
-		<input type="button" class="btn btn-primary btn-sm" value="BACK" onclick="history.back(-1)" />
-		<a href="http://167.99.225.139" class="btn btn-primary btn-sm">HOME</a>
-	</div>
+
+    {% include 'Header_Maestros.html' %}
+
 	<div class="jumbotron jumbotron-fluid">
+		<input type="button" class="btn btn-primary btn-sm" value="BACK" onclick="history.back(-1)" />
 		<div class="container">
 			<div class="page-header">
 				<h1 align="center">Student Practice Tracker</h1> 
