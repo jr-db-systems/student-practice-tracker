@@ -12,3 +12,6 @@ http://157.230.61.255/form
 
 http://157.230.61.255/users
 -Use of Jinja template in HTML file called from Flask to retrieve queries from Data Base
+
+This server is no longer available
+Check latest Sprints for new host
