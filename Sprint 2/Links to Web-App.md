@@ -10,3 +10,4 @@ http://167.99.225.139/remover
 http://167.99.225.139/estudiantes
 -Show all students in the Data Base
 
+Please navigate through the app using the welcome page since there was a change in the addresses names
